@@ -1,19 +1,19 @@
-var keys = document.querySelectorAll('#calculator span');
-var operators = ['+', '-', 'x', '÷'];
-var decimalAdded = false;
+const keys = document.querySelectorAll('#calculator span');
+const operators = ['+', '-', 'x', '÷'];
+let decimalAdded = false;
 
-for (var i = 0; i < keys.length; i++) {
+for (let i = 0; i < keys.length; i++) {
   keys[i].onclick = function (e) {
-    var input = document.querySelector('.screen');
-    var inputVal = input.innerHTML;
-    var btnVal = this.innerHTML;
-    var total;
+    const input = document.querySelector('.screen');
+    const inputVal = input.innerHTML;
+    const btnVal = this.innerHTML;
+    let total;
     if (btnVal == 'C') {
       input.innerHTML = '';
       decimalAdded = false;
     } else if (btnVal == '=') {
-      var equation = inputVal;
-      var lastChar = equation[equation.length - 1];
+      let equation = inputVal;
+      let lastChar = equation[equation.length - 1];
 
       equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
@@ -29,7 +29,7 @@ for (var i = 0; i < keys.length; i++) {
 
       decimalAdded = false;
     } else if (operators.indexOf(btnVal) > -1) {
-      var lastChar = inputVal[inputVal.length - 1];
+      let lastChar = inputVal[inputVal.length - 1];
 
       if (inputVal != '' && operators.indexOf(lastChar) == -1)
         input.innerHTML += btnVal;
